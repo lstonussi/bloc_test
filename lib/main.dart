@@ -1,4 +1,4 @@
-import 'package:bloc_test/bloc/login_bloc_bloc.dart';
+import 'package:bloc_test/bloc/login_bloc.dart';
 import 'package:bloc_test/home.dart';
 import 'package:bloc_test/login.dart';
 import 'package:flutter/material.dart';
@@ -23,11 +23,11 @@ class MyApp extends StatelessWidget {
       },
       home: MultiBlocProvider(
         providers: [
-          BlocProvider<LoginBlocBloc>(
-            create: (context) => LoginBlocBloc(),
+          BlocProvider<LoginBloc>(
+            create: (context) => LoginBloc(),
           ),
         ],
-        child: BlocBuilder<LoginBlocBloc, LoginBlocState>(
+        child: BlocBuilder<LoginBloc, LoginBlocState>(
           builder: (context, state) {
             if (state is StartLoginState)
               return Center(child: CircularProgressIndicator());

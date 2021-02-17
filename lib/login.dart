@@ -1,4 +1,4 @@
-import 'package:bloc_test/bloc/login_bloc_bloc.dart';
+import 'package:bloc_test/bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,11 +11,10 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<LoginBlocBloc>(context);
+    final bloc = BlocProvider.of<LoginBloc>(context);
     void _authenticate() {
-      final sigInEvent =
-          SignInEvent(email: _emailController.text, pass: _passController.text);
-      bloc.add(sigInEvent);
+      bloc.add(SignInEvent(
+          email: _emailController.text, pass: _passController.text));
     }
 
     return Scaffold(
